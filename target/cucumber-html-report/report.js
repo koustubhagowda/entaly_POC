@@ -13,7 +13,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 4028748046,
+  "duration": 6255787662,
   "status": "passed"
 });
 formatter.background({
@@ -37,7 +37,7 @@ formatter.match({
   "location": "SigninPageSteps.i_am_on_entaly_website()"
 });
 formatter.result({
-  "duration": 6774193549,
+  "duration": 4921598140,
   "status": "passed"
 });
 formatter.match({
@@ -54,60 +54,208 @@ formatter.match({
   "location": "SigninPageSteps.i_enter_valid_login_crediential_for_click_on_SignIn(String,String)"
 });
 formatter.result({
-  "duration": 6257695830,
+  "duration": 7138792967,
   "status": "passed"
 });
 formatter.scenario({
-  "comments": [
+  "line": 9,
+  "name": "bargraph automating",
+  "description": "",
+  "id": "graph-automate;bargraph-automating",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
     {
       "line": 8,
-      "value": "#@bargraph"
+      "name": "@bargraph"
+    }
+  ]
+});
+formatter.step({
+  "line": 10,
+  "name": "Im on dashboard",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 11,
+  "name": "I navigate on bargraph",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 12,
+  "name": "I should able to fetch the data with in bargraph",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "BargraphSteps.im_on_dashboard()"
+});
+formatter.result({
+  "duration": 2715499424,
+  "status": "passed"
+});
+formatter.match({
+  "location": "BargraphSteps.i_navigate_on_bargraph()"
+});
+formatter.result({
+  "duration": 8590703899,
+  "status": "passed"
+});
+formatter.match({
+  "location": "BargraphSteps.i_should_able_to_fetch_the_data_with_in_bargraph()"
+});
+formatter.result({
+  "duration": 54499964868,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 728809230,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 4690187185,
+  "status": "passed"
+});
+formatter.background({
+  "line": 4,
+  "name": "user login",
+  "description": "",
+  "type": "background",
+  "keyword": "Background"
+});
+formatter.step({
+  "line": 5,
+  "name": "I am on entaly website",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "I enter valid login crediential for \"qwinix@yopmail.com\" \u0026 \"Qwinix123!\" \u0026 click on SignIn",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "SigninPageSteps.i_am_on_entaly_website()"
+});
+formatter.result({
+  "duration": 49941096269,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "qwinix@yopmail.com",
+      "offset": 37
     },
     {
-      "line": 9,
-      "value": "#Scenario: bargraph automating"
-    },
-    {
-      "line": 10,
-      "value": "#Given Im on dashboard"
-    },
-    {
-      "line": 11,
-      "value": "#When I navigate on bargraph"
-    },
-    {
-      "line": 12,
-      "value": "#Then I should able to fetch the data with in bargraph"
-    },
-    {
-      "line": 13,
-      "value": "#"
-    },
-    {
-      "line": 14,
-      "value": "#@radialchart"
-    },
-    {
-      "line": 15,
-      "value": "#Scenario: radialchart automating"
-    },
-    {
-      "line": 16,
-      "value": "#Given Im on dashboard page"
-    },
-    {
-      "line": 17,
-      "value": "#When I navigate on radialchart"
-    },
-    {
-      "line": 18,
-      "value": "#Then I should able to fetch the data with in radialchart"
-    },
-    {
-      "line": 19,
-      "value": "#"
+      "val": "Qwinix123!",
+      "offset": 60
     }
   ],
+  "location": "SigninPageSteps.i_enter_valid_login_crediential_for_click_on_SignIn(String,String)"
+});
+formatter.result({
+  "duration": 6040548766,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 15,
+  "name": "radialchart automating",
+  "description": "",
+  "id": "graph-automate;radialchart-automating",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 14,
+      "name": "@radialchart"
+    }
+  ]
+});
+formatter.step({
+  "line": 16,
+  "name": "Im on dashboard page",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 17,
+  "name": "I navigate on radialchart",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 18,
+  "name": "I should able to fetch the data with in radialchart",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "RadialchartSteps.im_on_dashboard_page()"
+});
+formatter.result({
+  "duration": 3561771904,
+  "status": "passed"
+});
+formatter.match({
+  "location": "RadialchartSteps.i_navigate_on_radialchart()"
+});
+formatter.result({
+  "duration": 6804681998,
+  "status": "passed"
+});
+formatter.match({
+  "location": "RadialchartSteps.i_should_able_to_fetch_the_data_with_in_radialchart()"
+});
+formatter.result({
+  "duration": 41528073438,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 791927195,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 4930187659,
+  "status": "passed"
+});
+formatter.background({
+  "line": 4,
+  "name": "user login",
+  "description": "",
+  "type": "background",
+  "keyword": "Background"
+});
+formatter.step({
+  "line": 5,
+  "name": "I am on entaly website",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "I enter valid login crediential for \"qwinix@yopmail.com\" \u0026 \"Qwinix123!\" \u0026 click on SignIn",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "SigninPageSteps.i_am_on_entaly_website()"
+});
+formatter.result({
+  "duration": 53179665814,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "qwinix@yopmail.com",
+      "offset": 37
+    },
+    {
+      "val": "Qwinix123!",
+      "offset": 60
+    }
+  ],
+  "location": "SigninPageSteps.i_enter_valid_login_crediential_for_click_on_SignIn(String,String)"
+});
+formatter.result({
+  "duration": 4177569750,
+  "status": "passed"
+});
+formatter.scenario({
   "line": 21,
   "name": "linechart automating",
   "description": "",
@@ -140,25 +288,25 @@ formatter.match({
   "location": "LinechartSteps.im_on_dashboard_home_page()"
 });
 formatter.result({
-  "duration": 2452468697,
+  "duration": 2454431734,
   "status": "passed"
 });
 formatter.match({
   "location": "LinechartSteps.i_navigate_on_linechart()"
 });
 formatter.result({
-  "duration": 7651544219,
+  "duration": 6387902831,
   "status": "passed"
 });
 formatter.match({
   "location": "LinechartSteps.i_should_able_to_fetch_the_data_with_in_linegraph()"
 });
 formatter.result({
-  "duration": 56545514187,
+  "duration": 57984089653,
   "status": "passed"
 });
 formatter.after({
-  "duration": 723977626,
+  "duration": 791225744,
   "status": "passed"
 });
 });
