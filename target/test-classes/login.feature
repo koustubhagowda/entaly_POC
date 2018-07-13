@@ -11,14 +11,14 @@ Background: user login
     #When I navigate on bargraph
     #Then I should able to fetch the data with in bargraph
     #
-   #@radialchart
-   #Scenario: radialchart automating
-   #Given Im on dashboard page
-   #When I navigate on radialchart
-   #Then I should able to fetch the data with in radialchart
+   @radialchart
+   Scenario: radialchart automating
+   Given Im on dashboard page
+   When I navigate on radialchart
+   Then I should able to fetch the data with in radialchart
    #
-   @linechart
-   Scenario: linechart automating
-   Given Im on dashboard home page
-   When I navigate on linechart
-   Then I should able to fetch the data with in linegraph
+   #@linechart
+   #Scenario: linechart automating
+   #Given Im on dashboard home page
+   #When I navigate on linechart
+   #Then I should able to fetch the data with in linegraph
