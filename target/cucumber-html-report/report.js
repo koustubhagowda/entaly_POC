@@ -1,4 +1,4 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("login.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("zoom3.feature");
 formatter.feature({
   "line": 2,
   "name": "graph automate",
@@ -8,12 +8,12 @@ formatter.feature({
   "tags": [
     {
       "line": 1,
-      "name": "@entaly_graphs"
+      "name": "@zoom3_graphs"
     }
   ]
 });
 formatter.before({
-  "duration": 6255787662,
+  "duration": 5250653688,
   "status": "passed"
 });
 formatter.background({
@@ -37,7 +37,7 @@ formatter.match({
   "location": "SigninPageSteps.i_am_on_entaly_website()"
 });
 formatter.result({
-  "duration": 4921598140,
+  "duration": 3105572301,
   "status": "passed"
 });
 formatter.match({
@@ -54,14 +54,14 @@ formatter.match({
   "location": "SigninPageSteps.i_enter_valid_login_crediential_for_click_on_SignIn(String,String)"
 });
 formatter.result({
-  "duration": 7138792967,
+  "duration": 4106949547,
   "status": "passed"
 });
 formatter.scenario({
   "line": 9,
-  "name": "bargraph automating",
+  "name": "zoom3 bargraph automating",
   "description": "",
-  "id": "graph-automate;bargraph-automating",
+  "id": "graph-automate;zoom3-bargraph-automating",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
@@ -73,46 +73,52 @@ formatter.scenario({
 });
 formatter.step({
   "line": 10,
-  "name": "Im on dashboard",
+  "name": "Im on home page of barchart",
   "keyword": "Given "
 });
 formatter.step({
   "line": 11,
-  "name": "I navigate on bargraph",
+  "name": "I navigate to zoom3 barchart table page",
   "keyword": "When "
 });
 formatter.step({
   "line": 12,
-  "name": "I should able to fetch the data with in bargraph",
+  "name": "I should able to fetch the content in tabel of bargraph",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "BargraphSteps.im_on_dashboard()"
+  "location": "Zoom3bargraphSteps.im_on_home_page_of_barchart()"
 });
 formatter.result({
-  "duration": 2715499424,
+  "duration": 2292370553,
   "status": "passed"
 });
 formatter.match({
-  "location": "BargraphSteps.i_navigate_on_bargraph()"
+  "arguments": [
+    {
+      "val": "3",
+      "offset": 18
+    }
+  ],
+  "location": "Zoom3bargraphSteps.i_navigate_to_zoom_barchart_table_page(int)"
 });
 formatter.result({
-  "duration": 8590703899,
+  "duration": 7761508631,
   "status": "passed"
 });
 formatter.match({
-  "location": "BargraphSteps.i_should_able_to_fetch_the_data_with_in_bargraph()"
+  "location": "Zoom3bargraphSteps.i_should_able_to_fetch_the_content_in_tabel_of_bargraph()"
 });
 formatter.result({
-  "duration": 54499964868,
+  "duration": 11899210363,
   "status": "passed"
 });
 formatter.after({
-  "duration": 728809230,
+  "duration": 941901050,
   "status": "passed"
 });
 formatter.before({
-  "duration": 4690187185,
+  "duration": 4007358340,
   "status": "passed"
 });
 formatter.background({
@@ -136,7 +142,7 @@ formatter.match({
   "location": "SigninPageSteps.i_am_on_entaly_website()"
 });
 formatter.result({
-  "duration": 49941096269,
+  "duration": 31041900023,
   "status": "passed"
 });
 formatter.match({
@@ -153,14 +159,14 @@ formatter.match({
   "location": "SigninPageSteps.i_enter_valid_login_crediential_for_click_on_SignIn(String,String)"
 });
 formatter.result({
-  "duration": 6040548766,
+  "duration": 4058019608,
   "status": "passed"
 });
 formatter.scenario({
   "line": 15,
-  "name": "radialchart automating",
+  "name": "zoom3 radialchart automating",
   "description": "",
-  "id": "graph-automate;radialchart-automating",
+  "id": "graph-automate;zoom3-radialchart-automating",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
@@ -172,141 +178,48 @@ formatter.scenario({
 });
 formatter.step({
   "line": 16,
-  "name": "Im on dashboard page",
+  "name": "Im on home page of radialchart",
   "keyword": "Given "
 });
 formatter.step({
   "line": 17,
-  "name": "I navigate on radialchart",
+  "name": "I navigate to zoom3 radialchart table page",
   "keyword": "When "
 });
 formatter.step({
   "line": 18,
-  "name": "I should able to fetch the data with in radialchart",
+  "name": "I should able to fetch the content in tabel of radialgraph",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "RadialchartSteps.im_on_dashboard_page()"
+  "location": "Zoom3radialgraphSteps.im_on_home_page_of_radialchart()"
 });
 formatter.result({
-  "duration": 3561771904,
-  "status": "passed"
-});
-formatter.match({
-  "location": "RadialchartSteps.i_navigate_on_radialchart()"
-});
-formatter.result({
-  "duration": 6804681998,
-  "status": "passed"
-});
-formatter.match({
-  "location": "RadialchartSteps.i_should_able_to_fetch_the_data_with_in_radialchart()"
-});
-formatter.result({
-  "duration": 41528073438,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 791927195,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 4930187659,
-  "status": "passed"
-});
-formatter.background({
-  "line": 4,
-  "name": "user login",
-  "description": "",
-  "type": "background",
-  "keyword": "Background"
-});
-formatter.step({
-  "line": 5,
-  "name": "I am on entaly website",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 6,
-  "name": "I enter valid login crediential for \"qwinix@yopmail.com\" \u0026 \"Qwinix123!\" \u0026 click on SignIn",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "SigninPageSteps.i_am_on_entaly_website()"
-});
-formatter.result({
-  "duration": 53179665814,
+  "duration": 2287866969,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "qwinix@yopmail.com",
-      "offset": 37
-    },
-    {
-      "val": "Qwinix123!",
-      "offset": 60
+      "val": "3",
+      "offset": 18
     }
   ],
-  "location": "SigninPageSteps.i_enter_valid_login_crediential_for_click_on_SignIn(String,String)"
+  "location": "Zoom3radialgraphSteps.i_navigate_to_zoom_radialchart_table_page(int)"
 });
 formatter.result({
-  "duration": 4177569750,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 21,
-  "name": "linechart automating",
-  "description": "",
-  "id": "graph-automate;linechart-automating",
-  "type": "scenario",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "line": 20,
-      "name": "@linechart"
-    }
-  ]
-});
-formatter.step({
-  "line": 22,
-  "name": "Im on dashboard home page",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 23,
-  "name": "I navigate on linechart",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 24,
-  "name": "I should able to fetch the data with in linegraph",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "LinechartSteps.im_on_dashboard_home_page()"
-});
-formatter.result({
-  "duration": 2454431734,
+  "duration": 6094989729,
   "status": "passed"
 });
 formatter.match({
-  "location": "LinechartSteps.i_navigate_on_linechart()"
+  "location": "Zoom3radialgraphSteps.i_should_able_to_fetch_the_content_in_tabel_of_radialgraph()"
 });
 formatter.result({
-  "duration": 6387902831,
-  "status": "passed"
-});
-formatter.match({
-  "location": "LinechartSteps.i_should_able_to_fetch_the_data_with_in_linegraph()"
-});
-formatter.result({
-  "duration": 57984089653,
+  "duration": 134940553409,
   "status": "passed"
 });
 formatter.after({
-  "duration": 791225744,
+  "duration": 921036696,
   "status": "passed"
 });
 });

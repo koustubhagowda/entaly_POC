@@ -5,11 +5,11 @@ Background: user login
     Given I am on entaly website
     When I enter valid login crediential for "qwinix@yopmail.com" & "Qwinix123!" & click on SignIn
 
-  #@bargraph
-  #Scenario: bargraph automating
-    #Given Im on dashboard
-    #When I navigate on bargraph
-    #Then I should able to fetch the data with in bargraph
+  @bargraph
+  Scenario: bargraph automating
+    Given Im on dashboard
+    When I navigate on bargraph
+    Then I should able to fetch the data with in bargraph
     
    @radialchart
    Scenario: radialchart automating
