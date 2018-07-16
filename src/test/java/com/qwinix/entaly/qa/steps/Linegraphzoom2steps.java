@@ -44,12 +44,12 @@ public class Linegraphzoom2steps {
 			System.out.println(linegrapValueArr);
 			for(int j=0;j<linegrapValueArr.length();j++)
 			 {
-				jsonlineobject jl = new jsonlineobject();
+				jsonlineobject bm = new jsonlineobject();
 				JSONObject graphValueObj = linegrapValueArr.getJSONObject(j);
-				jl.setXval(graphValueObj.getString("x"));
-				jl.setType(graphValueObj.getString("type"));
-				jl.setYval(graphValueObj.getInt("y"));
-				 arrayoflist1.add(jl);
+				bm.setXval(graphValueObj.getString("x"));
+				bm.setType(graphValueObj.getString("type"));
+				bm.setYval(graphValueObj.getInt("y"));
+				 arrayoflist1.add(bm);
 			 }
 		} catch (JSONException e)
 		{
