@@ -19,7 +19,9 @@ import io.restassured.response.Response;
 public class Radialgraphzoom2steps {
 	
 	WebDriver driver = StepsDefinitions.driver;
-	ArrayList<Basemodel> arrayoflist2 = new ArrayList<>();
+
+	ArrayList<JsonModel> arrayoflist5 = new ArrayList<>();
+
 	Bargraphpagezoom2 objBG = new  Bargraphpagezoom2();
 
 	public void radial_access_token() {
@@ -45,12 +47,14 @@ public class Radialgraphzoom2steps {
 			for(int i=0;i<pullrequest.length();i++)
 			{
 				
-				Basemodel bModel = new Basemodel();
+
+				JsonModel jm = new JsonModel();
 				JSONObject lk = pullrequest.getJSONObject(i);
-				bModel.setXval(lk.getInt("label"));
-				bModel.setYval(lk.getInt("theta"));
-				bModel.setZval(lk.getString("repo"));
-				arrayoflist2.add(bModel);
+				jm.setYval(lk.getInt("label"));
+				jm.setYval(lk.getInt("theta"));
+				jm.setXval(lk.getString("repo"));
+				arrayoflist5.add(jm);
+
 			}
 		} catch (JSONException e)
 		{
@@ -97,10 +101,12 @@ public class Radialgraphzoom2steps {
 	  		
 	  		 
 	  		 
-	  		for(int j=0;j<arrayoflist2.size();j++)
+	  		for(int j=0;j<arrayoflist5.size();j++)
 			{
-	  			Basemodel jo = arrayoflist2.get(j);
-	 			String value = jo.getXval()+":\n"+jo.getYval()+":\n"+jo.getZval()+":\n";
+
+	  			JsonModel jo = arrayoflist5.get(j);
+	 			String value = jo.getYval()+":\n"+jo.getYval()+":\n"+jo.getXval()+":\n";
+
 
 	 			if(value.equalsIgnoreCase(text))
 	 			{
