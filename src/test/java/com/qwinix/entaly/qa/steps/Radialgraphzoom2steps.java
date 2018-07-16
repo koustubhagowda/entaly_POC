@@ -45,12 +45,12 @@ public class Radialgraphzoom2steps {
 			for(int i=0;i<pullrequest.length();i++)
 			{
 				
-				Basemodel mModel = new Basemodel();
+				Basemodel bModel = new Basemodel();
 				JSONObject lk = pullrequest.getJSONObject(i);
-				mModel.setXval(lk.getInt("label"));
-				mModel.setYval(lk.getInt("theta"));
-				mModel.setZval(lk.getString("repo"));
-				arrayoflist2.add(mModel);
+				bModel.setXval(lk.getInt("label"));
+				bModel.setYval(lk.getInt("theta"));
+				bModel.setZval(lk.getString("repo"));
+				arrayoflist2.add(bModel);
 			}
 		} catch (JSONException e)
 		{
