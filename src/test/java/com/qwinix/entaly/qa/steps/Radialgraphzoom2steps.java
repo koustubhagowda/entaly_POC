@@ -32,7 +32,8 @@ public class Radialgraphzoom2steps {
 		String token_id = (test).toString();
 		String email = ("qwinix@yopmail.com").toString();
 		
-		Response repoNcommits = RestAssured.given().baseUri("http://gitviz.qwinix.net:8000").basePath("/singleUserNCommits/Venkat55").header("Authorization","Bearer "+token_id)
+		
+		Response repoNcommits = RestAssured.given().baseUri("http://gitviz.qwinix.net:8000").basePath("singleUserNCommits/saikiranmothe").header("Authorization","Bearer "+token_id)
 		.contentType("application/json").log().body().
 		when().get();
 		String jsonobject = repoNcommits.asString();
@@ -70,33 +71,36 @@ public class Radialgraphzoom2steps {
 	    Thread.sleep(4000);
 		for(int k=3;k<=sizeoflist;k++)
 		{
-			if(k==2 || k==4 || k==5 || k==6 || k==14 || k==20)
+			if(k==2 || k==4 || k==5 || k==6 || k==7 || k==8 || k==9 || k==12 || k==15 || k==17 || k==18|| k==19)
 			{
 				continue;
 			}
 
-	      driver.findElement(By.xpath("(//div[@class='col-md-6 col-xs-6']//*[name()='svg']/*[name()='g']/*[name()='path'])["+ k +"]")).click();
+	     driver.findElement(By.xpath("(//div[@class='col-md-6 col-xs-6']//*[name()='svg']/*[name()='g']/*[name()='path'])["+ k +"]")).click();
 	     Thread.sleep(4000);
-	      int sizeof = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g']//*[name()='path']")).size();
-		   System.out.println(sizeof);
-		   for(int i=1;i<=sizeoflist;i++)
-		{
-			   if(i==4 || i==5 )
+	     int sizeof = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g']//*[name()='path']")).size();
+		 System.out.println(sizeof);
+		 for(int i=1;i<=sizeof;i++)
+		 	{
+			 if (k==3 || k==10 || k==11 || k==14) {
+			 if(i==4 || i==5 || i==3 || i==4 || i==2 || i==3 || i==4 ||  i==6 || i==8 || i==17 || i==18 || i==19 || i==20)
 					{
 						continue;
 					}
-
-			WebElement element = driver.findElement(By.xpath("(//*[name()='svg']/*[name()='g']//*[name()='path'])[" + i +"]")); 
-			objBG.onMouseOver(element);
-			String text = driver.findElement(By.xpath("//div[@class='hintStyle']")).getText();
-	  		System.out.println(text);
+			   }
+			 WebElement element = driver.findElement(By.xpath("(//*[name()='svg']/*[name()='g']//*[name()='path'])[" + i +"]")); 
+			 Thread.sleep(4000);
+			 objBG.onMouseOver(element);
+			 String text =driver.findElement(By.xpath("//div[@class='hintStyle']")).getText();
+			 Thread.sleep(4000);
+	  		 System.out.println(text);
 	  		
 	  		 
 	  		 
 	  		for(int j=0;j<arrayoflist2.size();j++)
 			{
 	  			Jsonmodel jo = arrayoflist2.get(j);
-	 			String value = jo.getXval()+" :\n"+jo.getYval()+" :\n"+jo.getZval();
+	 			String value = jo.getXval()+":\n"+jo.getYval()+":\n"+jo.getZval()+":\n";
 
 	 			if(value.equalsIgnoreCase(text))
 	 			{
@@ -106,11 +110,12 @@ public class Radialgraphzoom2steps {
 	 			}
 	 		
 			}
+	  	
 		}
+			
 			Thread.sleep(3000);
-			driver.findElement(By.xpath("//button[@class='butn-top btn btn-primary']")).click();
+			driver.findElement(By.xpath("(//button[@type='button'])[5]")).click();
 	 		Thread.sleep(5000);
-		   
 		
 			}
 	  

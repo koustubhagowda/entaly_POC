@@ -1,5 +1,7 @@
 package com.qwinix.entaly.qa.steps;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,12 +24,20 @@ public class Bargraphzoom2step {
 		ArrayList<Jsonobject> arrayoflist = new ArrayList<>();
 		Bargraphpagezoom2 objBG = new  Bargraphpagezoom2();
 		
-public void barchart_access_token() {
+public void barchart_access_token() throws InterruptedException {
+			Thread.sleep(3000);
+			List<WebElement> url = driver.findElements(By.xpath("//div[2]/*[name()='svg']/*[name()='g'][2]//*[name()='text']"));
+			Iterator<WebElement> itr = url.iterator();
+			while(itr.hasNext()) {
+			    System.out.println(itr.next().getText());
+			
+		
+	
 			JavascriptExecutor js = (JavascriptExecutor)driver;
 			Object test= (js.executeScript("return localStorage.getItem('access_token')"));
 			String token_id = (test).toString();
 			String email = ("qwinix@yopmail.com").toString();
-			Response repoNcommits = RestAssured.given().baseUri("http://gitviz.qwinix.net:8000").basePath(" singleRepoNCommits/q-dash").header("Authorization","Bearer "+token_id)
+			Response repoNcommits = RestAssured.given().baseUri("http://gitviz.qwinix.net:8000/singleRepoNCommits").basePath("url").header("Authorization","Bearer "+token_id)
 			.contentType("application/json").log().body().
 			when().get();
 			String jsonobject = repoNcommits.asString();
@@ -51,7 +61,7 @@ public void barchart_access_token() {
 				e.printStackTrace();
 			}
 			}
-			
+}		
 
 public void barchart_fetchdata() throws InterruptedException {
 		int sizeofbargraph = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g']//*[name()='rect']")).size();
