@@ -7,18 +7,12 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-<<<<<<< HEAD
 
-=======
->>>>>>> poc_koustu
 		features = {"src/test/resources"},tags = {"@zoom3_graphs"},
 //				@entaly_graphs,
 //				@multiple_graphs,
 //				@zoom3_graphs
-<<<<<<< HEAD
 
-=======
->>>>>>> poc_koustu
 		glue = {"com.qwinix.entaly.qa"},
 		plugin = {"pretty",
 				"html:target/cucumber-html-report"}
