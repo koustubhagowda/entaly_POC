@@ -9,10 +9,15 @@ import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.safari.SafariDriver;
 
 import com.qwinix.entaly.qa.steps.ConfigUtil;
 
@@ -45,6 +50,7 @@ public class UserSteps
 	ArrayList<JsonModel> listofarray = new ArrayList<>();
 	ArrayList<JsonModel> listofarray1 = new ArrayList<>();
 	ArrayList<JsonModel> listofarray2 = new ArrayList<>();
+	ArrayList<JsonModel> listofarray3 = new ArrayList<>();
     
   //To open url
   	public void openUrl()
@@ -65,7 +71,7 @@ public class UserSteps
   	}
   	
   	//Dashboard verify
-  	public void Pageverify()
+  	public void Pageverify() throws InterruptedException
   	{
   		bargraphObj.verify.getText();
   	}
@@ -84,7 +90,6 @@ public class UserSteps
   			WebElement individualbar_graph = driver.findElement(By.xpath("(//*[name()='svg']/*[name()='g'][4]/*[name()='rect'])[" + i +"]")); 
   			commonUtilObj.onMouseOver(individualbar_graph);
   	  		String text = bargraphObj.fetchdata.getText();
-//  	  		System.out.println(text);
   	  		Thread.sleep(3000);
   	  		
   	  		for(int j=0;j<listofarray.size();j++)
@@ -139,10 +144,9 @@ public class UserSteps
 			{
 				continue;
 			}
-  			WebElement individualradial_graph = driver.findElement(By.xpath("(//div[@class='col-md-6 col-xs-6']//*[name()='svg']/*[name()='g']/*[name()='path'])[" + i +"]")); 
+  			WebElement individualradial_graph = driver.findElement(By.xpath("(//div[@class='col-md-6 col-xs-6']//*[name()='svg']/*[name()='g']/*[name()='path'])[" + i + "]")); 
   			commonUtilObj.onMouseOver(individualradial_graph);
   	  		String text = radialchartObj.fetchdata.getText();
-//  	  		System.out.println(text);
   	  		Thread.sleep(3000);
   	  		
   	  		for(int j=0;j<listofarray1.size();j++)
@@ -159,8 +163,6 @@ public class UserSteps
 	  				break;
 	  			}
 			}
-//  		Thread.sleep(5000);
-//  		commonUtilObj.onMouseOver(radialchartObj.mouseover);
   		}
   	}
   	
@@ -197,19 +199,13 @@ public class UserSteps
   			int individualline_graph = driver.findElements(By.xpath("(//*[name()='svg']/*[name()='g'][" + i + "]//*[name()='circle'])")).size();
   			for(int j=1;j<=individualline_graph;j++)
   			{
-  				if(j==5 || j==7 ||j==1)
+  				if(j==5 || j==7 || j==1)
   				{
-//  					if(j==5 || j==7)
   					continue;
   				}
-//  				if(j==3)
-//  				{
-//  					if()
-//  				}
   				WebElement element = driver.findElement(By.xpath("(//*[name()='svg']/*[name()='g'][" + i + "]//*[name()='circle'])[" + j + "]"));
   				commonUtilObj.onMouseOver(element);
   				String text = linechartObj.fetchdata.getText();
-//  	  		System.out.println(text);
   				Thread.sleep(3000);
   				
   				for(int k=0;k<listofarray2.size();k++)
@@ -227,11 +223,7 @@ public class UserSteps
   		  			}
   				}
   			}
-
-  	  		
-//  		Thread.sleep(5000);
-//  		commonUtilObj.onMouseOver(linechartObj.mouseover);
-  		}
+   		}
   	}
   	
   	
@@ -255,32 +247,22 @@ public class UserSteps
   		Thread.sleep(5000);
   		JavascriptExecutor js = (JavascriptExecutor)driver;
   		String token_id = js.executeScript("return localStorage.getItem('access_token')").toString();
-//		System.out.println(token_id);
 		String email = ("qwinix@yopmail.com").toString();
 		Response  reposNcommits = RestAssured.given().baseUri("http://gitviz.qwinix.net:8000").basePath("reposAndCommits?repoCount=20").header("Authorization","Bearer "+token_id).contentType("application/json").log().body().when().get();
 		String jsonString = reposNcommits.asString();
-		//System.out.println(reposNcommits.asString());
 		System.out.println(jsonString);
-				
-//		JsonParser parser = new JsonParser();
-//		JSONObject json = (JSONObject)parser.parse(repo.);
-		
-		
 		
 		JSONObject object = new JSONObject(jsonString);
-		//JSONObject object =(JSONObject) json;
+		
 		try
 		{
 			JSONArray repos = object.getJSONArray("repoNCommits");
 			for(int i=0;i<repos.length();i++)
 			{
-				//System.out.println(holidays.getString(arg0));
 				JsonModel mModel = new JsonModel();
-				JSONObject lj=repos.getJSONObject(i);
-				//System.out.println(lj.get("x"));
-				//System.out.println(lj.get("y"));
-				mModel.setXval(lj.getString("x"));
-				mModel.setYval(lj.getInt("y"));
+				JSONObject rcommits=repos.getJSONObject(i);
+				mModel.setXval(rcommits.getString("x"));
+				mModel.setYval(rcommits.getInt("y"));
 				listofarray.add(mModel);
 			}
 		} catch (JSONException e)
@@ -296,32 +278,22 @@ public class UserSteps
   		Thread.sleep(5000);
   		JavascriptExecutor js = (JavascriptExecutor)driver;
   		String token_id = js.executeScript("return localStorage.getItem('access_token')").toString();
-//		System.out.println(token_id);
-		String email = ("qwinix@yopmail.com").toString();
+		String emailid = ("qwinix@yopmail.com").toString();
 		Response  userAndPullreq = RestAssured.given().baseUri("http://gitviz.qwinix.net:8000").basePath("usersAndPullreq?usersCount=20").header("Authorization","Bearer "+token_id).contentType("application/json").log().body().when().get();
 		String Stringjson = userAndPullreq.asString();
-		//System.out.println(userAndPullreq.asString());
-		System.out.println(Stringjson);
-				
-//		JsonParser parser = new JsonParser();
-//		JSONObject json = (JSONObject)parser.parse(repo.);
-		
-		
+		System.out.println(Stringjson);		
 		
 		JSONObject objects = new JSONObject(Stringjson);
-		//JSONObject object =(JSONObject) json;
+		
 		try
 		{
 			JSONArray pullrequest = objects.getJSONArray("usersAndPullreq");
 			for(int i=0;i<pullrequest.length();i++)
 			{
-				//System.out.println(holidays.getString(arg0));
 				JsonModel mModel = new JsonModel();
-				JSONObject lk = pullrequest.getJSONObject(i);
-				//System.out.println(lk.get("label"));
-				//System.out.println(lk.get("theta"));
-				mModel.setXval(lk.getString("label"));
-				mModel.setYval(lk.getInt("theta"));
+				JSONObject userpull = pullrequest.getJSONObject(i);
+				mModel.setXval(userpull.getString("label"));
+				mModel.setYval(userpull.getInt("theta"));
 				listofarray1.add(mModel);
 			}
 		} catch (JSONException e)
@@ -333,40 +305,31 @@ public class UserSteps
   	}
   	
   	
-  	public void LineAccessToken1() throws InterruptedException
+  	public void LineAccessToken() throws InterruptedException
   	{
   		Thread.sleep(5000);
   		JavascriptExecutor js = (JavascriptExecutor)driver;
   		String token_id = js.executeScript("return localStorage.getItem('access_token')").toString();
-//		System.out.println(token_id);
-		String email = ("qwinix@yopmail.com").toString();
+		String mailid = ("qwinix@yopmail.com").toString();
 		Response  teamsNMembers = RestAssured.given().baseUri("http://gitviz.qwinix.net:8000").basePath("teamsNMembersNPrs").header("Authorization","Bearer "+token_id).contentType("application/json").log().body().when().get();
 		String Stringofjson = teamsNMembers.asString();
-		//System.out.println(teamsNMembers.asString());
-		System.out.println(Stringofjson);
-				
-//		JsonParser parser = new JsonParser();
-//		JSONObject json = (JSONObject)parser.parse(repo.);
-		
+		System.out.println(Stringofjson);		
 		
 		JSONObject objects = new JSONObject(Stringofjson);
-		//JSONObject object =(JSONObject) json;
+		
 		try
 		{
 			JSONArray teammembers = objects.getJSONArray("teamsNMembersNPrs");
-//			System.out.println(teammembers);
 			for(int i=0;i<teammembers.length();i++)
 			{
-				JSONObject lm = teammembers.getJSONObject(i);
-				JSONArray grapValueArr = lm.getJSONArray("graphValues");
-				 for(int j=0;j<grapValueArr.length();j++)
+				JSONObject team = teammembers.getJSONObject(i);
+				JSONArray teammembersArr = team.getJSONArray("graphValues");
+				 for(int j=0;j<teammembersArr.length();j++)
 				 {
 					 JsonModel mModel = new JsonModel();
-					 JSONObject graphValueObj = grapValueArr.getJSONObject(j);
-//					 System.out.println(graphValueObj.getString("x"));
-//					 System.out.println(graphValueObj.getInt("y"));
-					 mModel.setXval(graphValueObj.getString("x"));
-					 mModel.setYval(graphValueObj.getInt("y"));
+					 JSONObject teammembersObj = teammembersArr.getJSONObject(j);
+					 mModel.setXval(teammembersObj.getString("x"));
+					 mModel.setYval(teammembersObj.getInt("y"));
 					 listofarray2.add(mModel);
 				 }
 
@@ -376,6 +339,241 @@ public class UserSteps
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-  		
   	}
+  	
+  	public void BarZoom3AccessToken() throws InterruptedException
+  	{
+  		Thread.sleep(5000);
+  		JavascriptExecutor js = (JavascriptExecutor)driver;
+  		String token_id = js.executeScript("return localStorage.getItem('access_token')").toString();
+		String email = ("qwinix@yopmail.com").toString();
+		
+		Response  committedDateMessage = RestAssured.given().baseUri("http://gitviz.qwinix.net:8000").basePath("committedDateNMessage/q-dash/acc_setting").header("Authorization","Bearer "+token_id).contentType("application/json").log().body().when().get();
+		String jsonString = committedDateMessage.asString();
+		System.out.println(jsonString);
+		
+		JSONObject object = new JSONObject(jsonString);
+		
+		try
+		{
+			JSONArray noofcommits = object.getJSONArray("committedDateNMessage");
+			for(int i=0;i<noofcommits.length();i++)
+			{
+				JsonModel mModel = new JsonModel();
+				JSONObject rcommits=noofcommits.getJSONObject(i);
+				mModel.setdata(rcommits.getString("committedDate"), rcommits.getString("message"), rcommits.getString("id"));
+				listofarray3.add(mModel);
+			}
+		} catch (JSONException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+  	}
+  	
+  	public void radialZoom3AccessToken() throws InterruptedException
+  	{
+  		Thread.sleep(5000);
+  		JavascriptExecutor js = (JavascriptExecutor)driver;
+  		String token_id = js.executeScript("return localStorage.getItem('access_token')").toString();
+		String email = ("qwinix@yopmail.com").toString();
+		
+		Response  singlePullreqcommits = RestAssured.given().baseUri("http://gitviz.qwinix.net:8000").basePath("singlePullreqNcommits/gopherconindia.github.io/193").header("Authorization","Bearer "+token_id).contentType("application/json").log().body().when().get();
+		String jsonString = singlePullreqcommits.asString();
+		System.out.println(jsonString);
+		
+		JSONObject object = new JSONObject(jsonString);
+		
+		try
+		{
+			JSONArray singlecommits = object.getJSONArray("singlePullreqNcommits");
+			for(int i=0;i<singlecommits.length();i++)
+			{
+				JsonModel mModel = new JsonModel();
+				JSONObject rcommits=singlecommits.getJSONObject(i);
+				mModel.setdata(rcommits.getString("oid"), rcommits.getString("message"), rcommits.getString("author"));
+				listofarray3.add(mModel);
+			}
+		} catch (JSONException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+  	}
+  	
+  	
+  	public void Multiplegraph_test() throws InterruptedException
+  	{
+  		bargraphObj.changegraph.click();
+  		bargraphObj.piechart.click();
+  		Thread.sleep(3000);
+  		WebElement displayed = driver.findElement(By.xpath("(//*[name()='svg']//*[name()='text'])[1]"));
+  		WebElement ele = driver.findElement(By.xpath("//div[@class='show-grid row'][1]//*[name()='svg']//*[name()='path'][1]"));
+		if(displayed.isDisplayed())
+  		{
+  			int sizeoflist = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g'][4]/*[name()='rect']")).size();
+  	  		for(int i=1;i<=sizeoflist;i++)
+  	  		{
+//  	  			if(i==6 || i==8 || i==17)
+//  				{
+//  					continue;
+//  				}
+  	  			WebElement individualbar_graph = driver.findElement(By.xpath("(//*[name()='svg']/*[name()='g'][4]/*[name()='rect'])[" + i +"]")); 
+  	  			commonUtilObj.onMouseOver(individualbar_graph);
+  	  	  		String text = radialchartObj.fetchdata.getText();
+  	  	  		System.out.println(text);
+  	  	  		Thread.sleep(3000);
+  	  	  		
+  	  	  		for(int j=0;j<listofarray.size();j++)
+  				{
+  		  			JsonModel mm = listofarray.get(j);
+  		  			String abc = mm.getXval()+" :\n"+mm.getYval();
+  		  			if(abc.equalsIgnoreCase(text))
+  		  			{
+  		  				
+  		  				System.out.println("value present in web '"+ text +"' and value present in JSON Obj '"+ abc +"'");
+//  		  				assertThat("value present in web '"+ text +"' and value present in JSON Obj '"+ abc +"' doesn't matching",abc.equals(text));
+  		  				break;
+  		  			}
+  				}
+  	  		}
+  		}
+		if(ele.isDisplayed())
+  		{
+  			int sizelist = driver.findElements(By.xpath("//div[@class='show-grid row'][1]//*[name()='path']")).size();
+  	  		System.out.println(sizelist);
+  	  		for(int i=1;i<=sizelist;i++)
+  	  		{
+  	  			if(i==3 || i==13 || i==19)
+  				{
+  					continue;
+  				}
+  	  			WebElement individualbar_graph = driver.findElement(By.xpath("(//div[@class='show-grid row'][1]//*[name()='path'])[" + i + "]"));
+  	  			commonUtilObj.onMouseOver(individualbar_graph);
+  	  	  		String text = bargraphObj.fetchdata.getText();
+  	  	  		Thread.sleep(3000);
+  	  	  		
+  	  	  		for(int j=0;j<listofarray.size();j++)
+  	  	  		{
+  	  	  			JsonModel mm = listofarray.get(j);
+  	  	  			String abc = mm.getXval()+" :\n"+mm.getYval();
+  	  	  			if(abc.equalsIgnoreCase(text))
+  	  	  			{	  				
+  	  	  				System.out.println("value present in web '"+ text +"' and value present in JSON Obj '"+ abc +"'");
+//    					assertThat("value present in web '"+ text +"' and value present in JSON Obj '"+ abc +"' doesn't matching",abc.equals(text));
+  	  	  				break;	
+  	  	  			}
+  	  	  		}
+  	  	  	
+  			}
+    	}
+  			
+  	}
+
+  	
+  	public void zoom3bargraph() throws InterruptedException
+  	{
+  		Thread.sleep(2000);
+  		int sizeoflist = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g'][4]/*[name()='rect']")).size();
+  		System.out.println(sizeoflist);
+//  		for(int i=1;i<=sizeoflist;)
+//  		{
+//  			if(i==6 || i==8 || i==17)
+//			{
+//				continue;
+//			}
+  			WebElement individualbar_graph = driver.findElement(By.xpath("(//*[name()='svg']/*[name()='g'][4]/*[name()='rect'])[1]"));
+  			individualbar_graph.click();
+  	  		Thread.sleep(4000);
+  	  		int listsize = driver.findElements(By.xpath("//*[name()='svg']//*[name()='circle']")).size();
+  	  		System.out.println(listsize);
+//  	  		for(int j=1;j<=listsize;j++)
+//  	  		{
+  	  			WebElement individualline_graph = driver.findElement(By.xpath("(//*[name()='svg']//*[name()='circle'])[1]"));
+  	  			individualline_graph.click();
+  	  	  		Thread.sleep(3000);
+  	  	  		int ele = driver.findElements(By.xpath("//*[@id='root']//tbody/tr")).size();
+  	  	  		System.out.println(ele);
+  	  	  		for(int k=1;k<=ele;k++)
+  	  	  		{
+  	  	  			WebElement tablecontent = driver.findElement(By.xpath("(//*[@id='root']//tbody/tr)[" + k + "]"));
+  	  	  			String text = tablecontent.getText();
+//  	  	  			System.out.println(text); 	
+  	  	  			
+  	  	  			for(int l=0;l<listofarray3.size();l++)
+  	  	  			{
+  	  	  				JsonModel mm = listofarray3.get(l);
+////	  				System.out.println(mm);
+  	  	  				String abc = mm.getcDateval()+" "+mm.getmval()+" "+mm.getidval();
+////	  				System.out.println(abc);
+  	  	  				if(abc.equalsIgnoreCase(text))
+  	  	  				{
+  	  	  					System.out.println("value present in web '"+ text +"' and value present in JSON Obj '"+ abc +"'");
+////	  					assertThat("value present in web '"+ text +"' and value present in JSON Obj '"+ abc +"' doesn't matching",abc.equals(text));
+  	  	  					break;
+  	  	  				}
+  	  	  			}
+  	  	  		}
+	  	  		driver.findElement(By.xpath("//button[contains(text(),'Back')]")).click();
+	  	  		Thread.sleep(2000);
+  	  		}
+//  	  	driver.findElement(By.xpath("//button[contains(text(),'Back')]")).click();
+//  	  	Thread.sleep(2000);
+//  		}
+  		
+//  	}
+  	
+ 
+  	public void zoom3radialgraph() throws InterruptedException
+  	{
+  		Thread.sleep(2000);
+  		int sizeoflist = driver.findElements(By.xpath("//div[2]//*[name()='svg']/*[name()='g']/*[name()='path']")).size();
+  		System.out.println(sizeoflist);
+//  		for(int i=1;i<=sizeoflist;)
+//  		{
+//  			if(i==6 || i==8 || i==17)
+//			{
+//				continue;
+//			}
+  			WebElement individualbar_graph = driver.findElement(By.xpath("(//div[2]//*[name()='svg']/*[name()='g']/*[name()='path'])[14]"));
+  			individualbar_graph.click();
+  	  		Thread.sleep(4000);
+  	  		int listsize = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g']/*[name()='path']")).size();
+  	  		System.out.println(listsize);
+//  	  		for(int j=1;j<=listsize;j++)
+//  	  		{
+  	  			WebElement individualline_graph = driver.findElement(By.xpath("(//*[name()='svg']/*[name()='g']/*[name()='path'])[10]"));
+  	  			individualline_graph.click();
+  	  	  		Thread.sleep(3000);
+  	  	  		int ele = driver.findElements(By.xpath("//*[@id='root']//tbody/tr")).size();
+  	  	  		System.out.println(ele);
+  	  	  		for(int k=1;k<=ele;k++)
+  	  	  		{
+  	  	  			WebElement tablecontent = driver.findElement(By.xpath("(//*[@id='root']//tbody/tr)[" + k + "]"));
+  	  	  			String text = tablecontent.getText();
+//  	  	  			System.out.println(text); 	
+  	  	  			
+  	  	  			for(int l=0;l<listofarray3.size();l++)
+  	  	  			{
+  	  	  				JsonModel mm = listofarray3.get(l);
+////	  				System.out.println(mm);
+  	  	  				String abc = mm.getcDateval()+" "+mm.getmval()+" "+mm.getidval();
+//  	  	  				Thread.sleep(3000);
+////	  				System.out.println(abc);
+  	  	  				if(abc.equalsIgnoreCase(text))
+  	  	  				{
+  	  	  					System.out.println("value present in web '"+ text +"' and value present in JSON Obj '"+ abc +"'");
+////	  					assertThat("value present in web '"+ text +"' and value present in JSON Obj '"+ abc +"' doesn't matching",abc.equals(text));
+  	  	  					break;
+  	  	  				}
+  	  	  			}
+  	  	  		}
+	  	  		driver.findElement(By.xpath("//button[contains(text(),'Back')]")).click();
+	  	  		Thread.sleep(2000);
+  	  		}
+//  	  	driver.findElement(By.xpath("//button[contains(text(),'Back')]")).click();
+//  	  	Thread.sleep(2000);
+//  		}
+  		
+//  	}
 }

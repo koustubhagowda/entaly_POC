@@ -44,5 +44,4 @@ public class ConfigUtil
    	 String path = pro.getProperty("URL");
    	 return path;
     }
-
 }

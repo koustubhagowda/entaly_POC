@@ -22,7 +22,7 @@ public class LinechartSteps
 	@When("^I navigate on linechart$")
 	public void i_navigate_on_linechart() throws Throwable
 	{
-		objUserSteps.LineAccessToken1();
+		objUserSteps.LineAccessToken();
 	}
 
 	@Then("^I should able to fetch the data with in linegraph$")
