@@ -21,7 +21,7 @@ import io.restassured.response.Response;
 
 public class Linegraphzoom2steps {
 	WebDriver driver = StepsDefinitions.driver;
-	ArrayList<jsonlineobject> arrayoflist1 = new ArrayList<>();
+	ArrayList<JsonModel> arrayoflist6 = new ArrayList<>();
 	Bargraphpagezoom2 objbs = new Bargraphpagezoom2();
 	Linegraphpagezoom2  objLP = new Linegraphpagezoom2();
 	
@@ -44,12 +44,12 @@ public class Linegraphzoom2steps {
 			System.out.println(linegrapValueArr);
 			for(int j=0;j<linegrapValueArr.length();j++)
 			 {
-				jsonlineobject jl = new jsonlineobject();
+				JsonModel bm = new JsonModel();
 				JSONObject graphValueObj = linegrapValueArr.getJSONObject(j);
-				jl.setXval(graphValueObj.getString("x"));
-				jl.setType(graphValueObj.getString("type"));
-				jl.setYval(graphValueObj.getInt("y"));
-				 arrayoflist1.add(jl);
+				bm.setXval(graphValueObj.getString("x"));
+				bm.setType(graphValueObj.getString("type"));
+				bm.setYval(graphValueObj.getInt("y"));
+				 arrayoflist6.add(bm);
 			 }
 		} catch (JSONException e)
 		{
@@ -90,9 +90,9 @@ public class Linegraphzoom2steps {
 		String text = driver.findElement(By.xpath("//div[@class='hintStyle']")).getText();
 		  System.out.println(text);
 		  Thread.sleep(3000);
-		  for(int j=0;j<arrayoflist1.size();j++)
+		  for(int j=0;j<arrayoflist6.size();j++)
 			{
-			  jsonlineobject jo = arrayoflist1.get(j);
+			  JsonModel jo = arrayoflist6.get(j);
 	 			String value = jo.getXval()+"\n"+jo.getType()+":\n"+jo.getYval();
 
 	 			if(value.equalsIgnoreCase(text))

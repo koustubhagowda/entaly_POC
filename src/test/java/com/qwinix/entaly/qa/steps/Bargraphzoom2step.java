@@ -21,7 +21,7 @@ public class Bargraphzoom2step {
 	
 		WebDriver driver = StepsDefinitions.driver;
 		ConfigUtil config = new ConfigUtil();
-		ArrayList<Jsonobject> arrayoflist = new ArrayList<>();
+		ArrayList<JsonModel> arrayoflist4 = new ArrayList<>();
 		Bargraphpagezoom2 objBG = new  Bargraphpagezoom2();
 		
 public void barchart_access_token() throws InterruptedException {
@@ -42,11 +42,11 @@ public void barchart_access_token() throws InterruptedException {
 				for(int i=0;i<repos.length();i++)
 				{
 					
-					Jsonobject jObject = new Jsonobject();
+					JsonModel jm = new JsonModel();
 					JSONObject lj=repos.getJSONObject(i);
-					jObject.setXval(lj.getString("x"));
-					jObject.setYval(lj.getInt("y"));
-					arrayoflist.add(jObject);
+					jm.setXval(lj.getString("x"));
+					jm.setYval(lj.getInt("y"));
+					arrayoflist4.add(jm);
 				}
 			} catch (JSONException e)
 			{
@@ -77,9 +77,9 @@ public void barchart_fetchdata() throws InterruptedException {
 		  		String text = driver.findElement(By.xpath("//div[@class='hintStyle']")).getText();
 		  		System.out.println(text);
 		  		Thread.sleep(3000);
-		  		for(int j=0;j<arrayoflist.size();j++)
+		  		for(int j=0;j<arrayoflist4.size();j++)
 				{
-				   Jsonobject jo = arrayoflist.get(j);
+		  			JsonModel jo = arrayoflist4.get(j);
 		 			String value = jo.getXval()+" :\n"+jo.getYval();
 
 		 			if(value.equalsIgnoreCase(text))
