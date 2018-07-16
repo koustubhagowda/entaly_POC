@@ -19,7 +19,7 @@ import io.restassured.response.Response;
 public class Radialgraphzoom2steps {
 	
 	WebDriver driver = StepsDefinitions.driver;
-	ArrayList<JsonModel> arrayoflist2 = new ArrayList<>();
+	ArrayList<JsonModel> arrayoflist5 = new ArrayList<>();
 	Bargraphpagezoom2 objBG = new  Bargraphpagezoom2();
 
 	public void radial_access_token() {
@@ -50,7 +50,7 @@ public class Radialgraphzoom2steps {
 				jm.setYval(lk.getInt("label"));
 				jm.setYval(lk.getInt("theta"));
 				jm.setXval(lk.getString("repo"));
-				arrayoflist2.add(jm);
+				arrayoflist5.add(jm);
 			}
 		} catch (JSONException e)
 		{
@@ -97,9 +97,9 @@ public class Radialgraphzoom2steps {
 	  		
 	  		 
 	  		 
-	  		for(int j=0;j<arrayoflist2.size();j++)
+	  		for(int j=0;j<arrayoflist5.size();j++)
 			{
-	  			JsonModel jo = arrayoflist2.get(j);
+	  			JsonModel jo = arrayoflist5.get(j);
 	 			String value = jo.getYval()+":\n"+jo.getYval()+":\n"+jo.getXval()+":\n";
 
 	 			if(value.equalsIgnoreCase(text))
