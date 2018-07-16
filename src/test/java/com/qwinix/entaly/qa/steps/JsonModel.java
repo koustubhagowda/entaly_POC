@@ -7,6 +7,7 @@ public class JsonModel
 	public String cDateval;
 	public String mval;
 	public String idval;
+	public String linetype;
 	public String getXval()
 	{
 		return xval;
@@ -40,5 +41,12 @@ public class JsonModel
 		this.cDateval = cDateval;
 		this.mval = mval;
 		this.idval = idval;
+	}
+	
+	public String getType() {
+		return linetype;
+	}
+	public void setType(String linetype) {
+		this.linetype = linetype;
 	}
 }
