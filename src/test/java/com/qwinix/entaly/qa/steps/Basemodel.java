@@ -1,6 +1,6 @@
 package com.qwinix.entaly.qa.steps;
 
-public class Jsonmodel {
+public class Basemodel {
 	
 	public int xval;
 	public int yval;
