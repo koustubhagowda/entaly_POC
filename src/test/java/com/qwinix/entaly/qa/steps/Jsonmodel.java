@@ -1,27 +1,44 @@
 package com.qwinix.entaly.qa.steps;
 
-public class Jsonmodel {
-	
-	public int xval;
+public class JsonModel
+{
+	public String xval;
 	public int yval;
-	public String zval;
-	public int getXval() {
+	public String cDateval;
+	public String mval;
+	public String idval;
+	public String getXval()
+	{
 		return xval;
 	}
-	public void setXval(int xval) {
+	public void setXval(String xval)
+	{
 		this.xval = xval;
 	}
-	public int getYval() {
+	public int getYval()
+	{
 		return yval;
 	}
-	public void setYval(int yval) {
+	public void setYval(int yval)
+	{
 		this.yval = yval;
 	}
-	public String getZval() {
-		return zval;
+	public String getcDateval()
+	{
+		return cDateval;
 	}
-	public void setZval(String zval) {
-		this.zval = zval;
+	public String getmval()
+	{
+		return mval;
 	}
-
+	public String getidval()
+	{
+		return idval;
+	}
+	public void setdata(String cDateval,String mval,String idval)
+	{
+		this.cDateval = cDateval;
+		this.mval = mval;
+		this.idval = idval;
+	}
 }
