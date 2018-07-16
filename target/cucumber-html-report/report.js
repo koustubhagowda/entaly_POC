@@ -13,7 +13,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 5250653688,
+  "duration": 10167647068,
   "status": "passed"
 });
 formatter.background({
@@ -37,7 +37,7 @@ formatter.match({
   "location": "SigninPageSteps.i_am_on_entaly_website()"
 });
 formatter.result({
-  "duration": 3105572301,
+  "duration": 48756389649,
   "status": "passed"
 });
 formatter.match({
@@ -54,7 +54,7 @@ formatter.match({
   "location": "SigninPageSteps.i_enter_valid_login_crediential_for_click_on_SignIn(String,String)"
 });
 formatter.result({
-  "duration": 4106949547,
+  "duration": 4074054718,
   "status": "passed"
 });
 formatter.scenario({
@@ -90,7 +90,7 @@ formatter.match({
   "location": "Zoom3bargraphSteps.im_on_home_page_of_barchart()"
 });
 formatter.result({
-  "duration": 2292370553,
+  "duration": 2965652133,
   "status": "passed"
 });
 formatter.match({
@@ -103,22 +103,22 @@ formatter.match({
   "location": "Zoom3bargraphSteps.i_navigate_to_zoom_barchart_table_page(int)"
 });
 formatter.result({
-  "duration": 7761508631,
+  "duration": 9370521878,
   "status": "passed"
 });
 formatter.match({
   "location": "Zoom3bargraphSteps.i_should_able_to_fetch_the_content_in_tabel_of_bargraph()"
 });
 formatter.result({
-  "duration": 11899210363,
+  "duration": 12425436463,
   "status": "passed"
 });
 formatter.after({
-  "duration": 941901050,
+  "duration": 790860674,
   "status": "passed"
 });
 formatter.before({
-  "duration": 4007358340,
+  "duration": 3288836450,
   "status": "passed"
 });
 formatter.background({
@@ -142,7 +142,7 @@ formatter.match({
   "location": "SigninPageSteps.i_am_on_entaly_website()"
 });
 formatter.result({
-  "duration": 31041900023,
+  "duration": 44674093560,
   "status": "passed"
 });
 formatter.match({
@@ -159,7 +159,7 @@ formatter.match({
   "location": "SigninPageSteps.i_enter_valid_login_crediential_for_click_on_SignIn(String,String)"
 });
 formatter.result({
-  "duration": 4058019608,
+  "duration": 4674701064,
   "status": "passed"
 });
 formatter.scenario({
@@ -195,7 +195,7 @@ formatter.match({
   "location": "Zoom3radialgraphSteps.im_on_home_page_of_radialchart()"
 });
 formatter.result({
-  "duration": 2287866969,
+  "duration": 2657645158,
   "status": "passed"
 });
 formatter.match({
@@ -208,18 +208,18 @@ formatter.match({
   "location": "Zoom3radialgraphSteps.i_navigate_to_zoom_radialchart_table_page(int)"
 });
 formatter.result({
-  "duration": 6094989729,
+  "duration": 5971271645,
   "status": "passed"
 });
 formatter.match({
   "location": "Zoom3radialgraphSteps.i_should_able_to_fetch_the_content_in_tabel_of_radialgraph()"
 });
 formatter.result({
-  "duration": 134940553409,
+  "duration": 12197649247,
   "status": "passed"
 });
 formatter.after({
-  "duration": 921036696,
+  "duration": 713602251,
   "status": "passed"
 });
 });
