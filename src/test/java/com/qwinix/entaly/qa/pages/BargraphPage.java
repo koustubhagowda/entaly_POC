@@ -19,9 +19,16 @@ public class BargraphPage
 	@FindBy(xpath="//div[@class='hintStyle']")
 	public WebElement fetchdata;
 	
+	@FindBy(xpath="//button[@id='g1GraphChange']")
+	public WebElement changegraph;
+	
+	@FindBy(xpath="//a[contains(text(),'Pie Chart')]")
+	public WebElement piechart;
+	
 	public BargraphPage()
 	{
 		PageFactory.initElements(StepsDefinitions.driver,this);
 	}
+	
 
 }
