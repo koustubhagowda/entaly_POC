@@ -1,8 +1,5 @@
 package com.qwinix.entaly.qa.steps;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,9 +53,9 @@ public void barchart_access_token() throws InterruptedException {
 			}
 		
 
-public void barchart_fetchdata() throws InterruptedException {
-		int sizeofbargraph = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g']//*[name()='rect']")).size();
-		for(int k=1;k<=sizeofbargraph;k++) {
+public void barchart_fetchdata() throws InterruptedException {		
+	int sizeofbargraph = objBG.getsize();
+	for(int k=1;k<=sizeofbargraph;k++) {
 			 if(k==6 || k==8 || k==17)
 				{
 						continue;
@@ -66,15 +63,14 @@ public void barchart_fetchdata() throws InterruptedException {
 			  driver.findElement(By.xpath("(//*[name()='svg']/*[name()='g']//*[name()='rect'])[" + k + "]")).click();
 			  System.out.println(sizeofbargraph);
 			  Thread.sleep(4000);
-			  int sizeoflist = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g']//*[name()='circle']")).size();
+			  int sizeoflist = objBG.getsize1();
 			   System.out.println(sizeoflist);
 			   for(int i=1;i<=sizeoflist;i++)
 			{
-				
 				WebElement element = driver.findElement(By.xpath("(//*[name()='svg']/*[name()='g']//*[name()='circle'])[" + i +"]")); 
 				objBG.onMouseOver(element);
 				Thread.sleep(3000);
-		  		String text = driver.findElement(By.xpath("//div[@class='hintStyle']")).getText();
+		  		String text = objBG.gettext();
 		  		System.out.println(text);
 		  		Thread.sleep(3000);
 		  		for(int j=0;j<arrayoflist4.size();j++)
@@ -91,14 +87,12 @@ public void barchart_fetchdata() throws InterruptedException {
 		 		
 				}
 			}
+				objBG.barbackbutton_click();
 				Thread.sleep(3000);
-				driver.findElement(By.xpath("//button[@class='backbtn btn btn-primary']")).click();
-		 		Thread.sleep(3000);
-			   
-				}
 		}
+}
 		  
-		}
+}
 			
 
 
