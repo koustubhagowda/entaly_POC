@@ -50,3 +50,4 @@ public class JsonModel
 		this.linetype = linetype;
 	}
 }
+

@@ -1,4 +1,4 @@
-@Zoom2graphs
+@Zoom2graphS
 Feature: As a end user
 I should able to fetch all the data in barchart
 
