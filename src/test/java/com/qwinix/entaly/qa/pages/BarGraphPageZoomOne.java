@@ -23,6 +23,4 @@ public class BarGraphPageZoomOne
 	{
 		PageFactory.initElements(StepsDefinitions.driver,this);
 	}
-	
-
 }
