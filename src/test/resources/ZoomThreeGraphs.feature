@@ -1,4 +1,4 @@
-@zoom3_graphs
+@entaly_zoom_three
 Feature: graph automate
 
 Background: user login
