@@ -1,4 +1,4 @@
-@entaly_graphs
+@entaly_zoom_one
 Feature: graph automate
 
 Background: user login
