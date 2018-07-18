@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.qwinix.entaly.qa.StepsDefinitions;
 
-public class SigninPage
+public class LoginPage
 {
 	@FindBy(xpath="//button[contains(text(),'Login')]")
 	public WebElement login;
@@ -20,7 +20,10 @@ public class SigninPage
 	@FindBy(xpath="//span[contains(text(),'Log In')]")
 	public WebElement sign_in;
 	
-	public SigninPage()
+	@FindBy(xpath="//h3[contains(text(),'Repositories and Commits:')]")
+	public WebElement verify;
+	
+	public LoginPage()
 	{
 		PageFactory.initElements(StepsDefinitions.driver,this);
 	}

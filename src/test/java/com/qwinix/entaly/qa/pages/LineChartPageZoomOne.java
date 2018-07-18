@@ -6,12 +6,15 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.qwinix.entaly.qa.StepsDefinitions;
 
-public class Zoom3bargraphPage
+public class LineChartPageZoomOne
 {
-	@FindBy(xpath="//a[contains(text(),'Pie Chart')]")
-	public WebElement piechart;
+//	@FindBy(xpath="//*[name()='svg']/*[name()='g'][5]//*[name()='circle'][1]")
+//	public WebElement mouseover;
 	
-	public Zoom3bargraphPage()
+	@FindBy(xpath="//div[@class='hintStyle']")
+	public WebElement fetchdata;
+	
+	public LineChartPageZoomOne()
 	{
 		PageFactory.initElements(StepsDefinitions.driver,this);
 	}

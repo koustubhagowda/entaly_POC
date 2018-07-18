@@ -1,4 +1,4 @@
-@zoom3_graphs
+@entaly_zoom_three
 Feature: graph automate
 
 Background: user login
@@ -16,9 +16,3 @@ Background: user login
    Given Im on home page of radialchart
    When I navigate to zoom3 radialchart table page
    Then I should able to fetch the content in tabel of radialgraph
-   #
-   #@linechart
-   #Scenario: linechart automating
-   #Given Im on dashboard home page
-   #When I navigate on linechart
-   #Then I should able to fetch the data with in linegraph

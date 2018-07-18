@@ -1,13 +1,13 @@
 package com.qwinix.entaly.qa.stepdefinitions;
 
-import com.qwinix.entaly.qa.steps.Radialgraphzoom2steps;
+import com.qwinix.entaly.qa.steps.RadialChartStepsZoomTwo;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class Radialgraphzoom2stepdef {
+public class RadialChartStepDefinitionsZoomTwo {
 	
-	Radialgraphzoom2steps objRS = new Radialgraphzoom2steps();
+	RadialChartStepsZoomTwo objRS = new RadialChartStepsZoomTwo();
 	
 	@When("^I navigate on the radial chart$")
 	public void i_navigate_on_the_radial_chart() throws Throwable {

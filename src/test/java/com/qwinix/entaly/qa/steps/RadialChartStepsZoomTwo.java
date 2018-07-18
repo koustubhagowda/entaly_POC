@@ -11,18 +11,28 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.qwinix.entaly.qa.StepsDefinitions;
-import com.qwinix.entaly.qa.pages.Bargraphpagezoom2;
+
+import com.qwinix.entaly.qa.pages.RadialChartPageZoomTwo;
+
+
+import com.qwinix.entaly.qa.pages.BarGraphPageZoomTwo;
+
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class Radialgraphzoom2steps {
+public class RadialChartStepsZoomTwo {
 	
 	WebDriver driver = StepsDefinitions.driver;
 
 	ArrayList<JsonModel> arrayoflist5 = new ArrayList<>();
+	BarGraphPageZoomTwo objBG = new  BarGraphPageZoomTwo();
+	RadialChartPageZoomTwo objRP = new RadialChartPageZoomTwo();
+	ArrayList<JsonModel> arrayoflist7 = new ArrayList<>();
 
-	Bargraphpagezoom2 objBG = new  Bargraphpagezoom2();
+
+
+
 
 	public void radial_access_token() {
 		String actual = driver.findElement(By.xpath("//h3[text()='Repositories and Commits:']")).getText();
@@ -53,7 +63,9 @@ public class Radialgraphzoom2steps {
 				jm.setYval(lk.getInt("label"));
 				jm.setYval(lk.getInt("theta"));
 				jm.setXval(lk.getString("repo"));
-				arrayoflist5.add(jm);
+				arrayoflist7.add(jm);
+
+
 
 			}
 		} catch (JSONException e)
@@ -70,7 +82,7 @@ public class Radialgraphzoom2steps {
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,500)", "");
 		Thread.sleep(4000);
-	    int sizeoflist = driver.findElements(By.xpath("//div[@class='col-md-6 col-xs-6']//*[name()='svg']/*[name()='g']/*[name()='path']")).size();
+		int sizeoflist = objRP.getsize();
 	    System.out.println(sizeoflist);
 	    Thread.sleep(4000);
 		for(int k=3;k<=sizeoflist;k++)
@@ -82,7 +94,7 @@ public class Radialgraphzoom2steps {
 
 	     driver.findElement(By.xpath("(//div[@class='col-md-6 col-xs-6']//*[name()='svg']/*[name()='g']/*[name()='path'])["+ k +"]")).click();
 	     Thread.sleep(4000);
-	     int sizeof = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g']//*[name()='path']")).size();
+	     int sizeof = objRP.getsize1();
 		 System.out.println(sizeof);
 		 for(int i=1;i<=sizeof;i++)
 		 	{
@@ -95,16 +107,17 @@ public class Radialgraphzoom2steps {
 			 WebElement element = driver.findElement(By.xpath("(//*[name()='svg']/*[name()='g']//*[name()='path'])[" + i +"]")); 
 			 Thread.sleep(4000);
 			 objBG.onMouseOver(element);
-			 String text =driver.findElement(By.xpath("//div[@class='hintStyle']")).getText();
+			 String text = objRP.gettext();
 			 Thread.sleep(4000);
 	  		 System.out.println(text);
 	  		
 	  		 
 	  		 
-	  		for(int j=0;j<arrayoflist5.size();j++)
+	  		for(int j=0;j<arrayoflist7.size();j++)
 			{
 
-	  			JsonModel jo = arrayoflist5.get(j);
+
+	  			JsonModel jo = arrayoflist7.get(j);
 	 			String value = jo.getYval()+":\n"+jo.getYval()+":\n"+jo.getXval()+":\n";
 
 
@@ -118,14 +131,9 @@ public class Radialgraphzoom2steps {
 			}
 	  	
 		}
-			
-			Thread.sleep(3000);
-			driver.findElement(By.xpath("(//button[@type='button'])[5]")).click();
+			objRP.radialbackbutton_click();
 	 		Thread.sleep(5000);
 		
 			}
-	  
-
-		
-	}
-	}
+	  }
+}
