@@ -64,7 +64,7 @@ public class LineChartStepsZoomTwo {
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,900)", "");
 		Thread.sleep(4000);
-		int size = driver.findElements(By.xpath("//div[1]/div/div/div[5]/div/center/div/div/div")).size();
+		int size = objLP.getsize();
 		Thread.sleep(4000);
 		System.out.println(size);
 		for(int k=1;k<=size;k++) {
@@ -74,7 +74,7 @@ public class LineChartStepsZoomTwo {
 			}
 		 driver.findElement(By.xpath("(//div[1]/div/div/div[5]/div/center/div/div/div)["+ k +"]")).click();
 		 Thread.sleep(4000);
-		 int sizeoflinegraph = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g']//*[name()='rect']")).size();
+		 int sizeoflinegraph = objLP.getsize1();
 		  System.out.println(sizeoflinegraph);
 		  for(int i=1;i<=sizeoflinegraph;i++) {
 //			  if(k==4) {
@@ -87,7 +87,7 @@ public class LineChartStepsZoomTwo {
 		 WebElement element = driver.findElement(By.xpath("(//*[name()='svg']/*[name()='g']//*[name()='rect'])[" + i +"]")); 
 		 objbs.onMouseOver(element);
 		Thread.sleep(3000);
-		String text = driver.findElement(By.xpath("//div[@class='hintStyle']")).getText();
+		String text = objLP.gettext();
 		  System.out.println(text);
 		  Thread.sleep(3000);
 		  for(int j=0;j<arrayoflist8.size();j++)
@@ -106,9 +106,7 @@ public class LineChartStepsZoomTwo {
 
 			   
 		  }
-		  Thread.sleep(3000);
-		  this.driver.findElement(By.xpath("(//button[@type='button'])[5]")).click();
-
+		  objLP.linebackbutton_click();
 		  Thread.sleep(3000);
 		
 		}

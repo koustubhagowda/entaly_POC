@@ -2,6 +2,7 @@ package com.qwinix.entaly.qa.stepdefinitions;
 
 import com.qwinix.entaly.qa.steps.BarGraphStepsZoomTwo;
 import com.qwinix.entaly.qa.steps.UserSteps;
+import com.qwinix.entaly.qa.steps.frontendsteps;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -12,10 +13,12 @@ import cucumber.api.java.en.When;
 public class BarGraphStepDefinitionsZoomTwo {
 	BarGraphStepsZoomTwo objBP = new BarGraphStepsZoomTwo();
 	UserSteps objUS = new UserSteps();
+	frontendsteps objfd = new frontendsteps();
 	
 	@Given("^Iam on Dashboard page$")
 	public void iam_on_Dashboard_page() throws Throwable {
 	  objUS.Pageverify();
+//		objfd.display();
 	}
 
 	@When("^I navigate to Barchart$")

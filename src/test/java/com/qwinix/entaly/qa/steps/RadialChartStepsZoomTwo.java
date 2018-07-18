@@ -11,7 +11,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.qwinix.entaly.qa.StepsDefinitions;
+
+import com.qwinix.entaly.qa.pages.RadialChartPageZoomTwo;
+
+
 import com.qwinix.entaly.qa.pages.BarGraphPageZoomTwo;
+
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -20,11 +25,14 @@ public class RadialChartStepsZoomTwo {
 	
 	WebDriver driver = StepsDefinitions.driver;
 
-
+	ArrayList<JsonModel> arrayoflist5 = new ArrayList<>();
+	BarGraphPageZoomTwo objBG = new  BarGraphPageZoomTwo();
+	RadialChartPageZoomTwo objRP = new RadialChartPageZoomTwo();
 	ArrayList<JsonModel> arrayoflist7 = new ArrayList<>();
 
 
-	BarGraphPageZoomTwo objBG = new  BarGraphPageZoomTwo();
+
+
 
 	public void radial_access_token() {
 		String actual = driver.findElement(By.xpath("//h3[text()='Repositories and Commits:']")).getText();
@@ -74,7 +82,7 @@ public class RadialChartStepsZoomTwo {
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,500)", "");
 		Thread.sleep(4000);
-	    int sizeoflist = driver.findElements(By.xpath("//div[@class='col-md-6 col-xs-6']//*[name()='svg']/*[name()='g']/*[name()='path']")).size();
+		int sizeoflist = objRP.getsize();
 	    System.out.println(sizeoflist);
 	    Thread.sleep(4000);
 		for(int k=3;k<=sizeoflist;k++)
@@ -86,7 +94,7 @@ public class RadialChartStepsZoomTwo {
 
 	     driver.findElement(By.xpath("(//div[@class='col-md-6 col-xs-6']//*[name()='svg']/*[name()='g']/*[name()='path'])["+ k +"]")).click();
 	     Thread.sleep(4000);
-	     int sizeof = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g']//*[name()='path']")).size();
+	     int sizeof = objRP.getsize1();
 		 System.out.println(sizeof);
 		 for(int i=1;i<=sizeof;i++)
 		 	{
@@ -99,7 +107,7 @@ public class RadialChartStepsZoomTwo {
 			 WebElement element = driver.findElement(By.xpath("(//*[name()='svg']/*[name()='g']//*[name()='path'])[" + i +"]")); 
 			 Thread.sleep(4000);
 			 objBG.onMouseOver(element);
-			 String text =driver.findElement(By.xpath("//div[@class='hintStyle']")).getText();
+			 String text = objRP.gettext();
 			 Thread.sleep(4000);
 	  		 System.out.println(text);
 	  		
@@ -123,14 +131,9 @@ public class RadialChartStepsZoomTwo {
 			}
 	  	
 		}
-			
-			Thread.sleep(3000);
-			driver.findElement(By.xpath("(//button[@type='button'])[5]")).click();
+			objRP.radialbackbutton_click();
 	 		Thread.sleep(5000);
 		
 			}
-	  
-
-		
-	}
-	}
+	  }
+}

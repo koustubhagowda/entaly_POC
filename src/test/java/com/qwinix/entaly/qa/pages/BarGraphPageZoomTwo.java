@@ -23,10 +23,24 @@ public class BarGraphPageZoomTwo {
 		Actions action = new Actions(driver);
 		action.moveToElement(we).perform();
 
-		
-		
 	}
-	public void gettext() {
-		driver.findElement(By.xpath("//div[@class='hintStyle']")).getText();
+	
+	public String gettext() {
+		return driver.findElement(By.xpath("//div[@class='hintStyle']")).getText();
+	}
+	
+	public int getsize() {
+		int sizeofbargraph = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g']//*[name()='rect']")).size();
+		int sizeoflist = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g']//*[name()='circle']")).size();
+		return sizeofbargraph;
+	}
+	
+	public int getsize1() {
+	 int sizeoflist = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g']//*[name()='circle']")).size();
+	return sizeoflist;
+	}
+	
+	public void barbackbutton_click() {
+		driver.findElement(By.xpath("//button[@class='backbtn btn btn-primary']")).click();
 	}
 }
