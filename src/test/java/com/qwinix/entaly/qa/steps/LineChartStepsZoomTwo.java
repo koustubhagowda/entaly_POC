@@ -13,17 +13,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.qwinix.entaly.qa.StepsDefinitions;
-import com.qwinix.entaly.qa.pages.Bargraphpagezoom2;
-import com.qwinix.entaly.qa.pages.Linegraphpagezoom2;
+import com.qwinix.entaly.qa.pages.BarGraphPageZoomTwo;
+import com.qwinix.entaly.qa.pages.LineChartPageZoomTwo;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class Linegraphzoom2steps {
+public class LineChartStepsZoomTwo {
 	WebDriver driver = StepsDefinitions.driver;
-	ArrayList<JsonModel> arrayoflist6 = new ArrayList<>();
-	Bargraphpagezoom2 objbs = new Bargraphpagezoom2();
-	Linegraphpagezoom2  objLP = new Linegraphpagezoom2();
+	ArrayList<JsonModel> arrayoflist8 = new ArrayList<>();
+	BarGraphPageZoomTwo objbs = new BarGraphPageZoomTwo();
+	LineChartPageZoomTwo  objLP = new LineChartPageZoomTwo();
 	
 	public void linechart_access_token(){
 		JavascriptExecutor js = (JavascriptExecutor)driver;
@@ -49,7 +49,7 @@ public class Linegraphzoom2steps {
 				bm.setXval(graphValueObj.getString("x"));
 				bm.setType(graphValueObj.getString("type"));
 				bm.setYval(graphValueObj.getInt("y"));
-				 arrayoflist6.add(bm);
+				 arrayoflist8.add(bm);
 			 }
 		} catch (JSONException e)
 		{
@@ -90,9 +90,9 @@ public class Linegraphzoom2steps {
 		String text = objLP.gettext();
 		  System.out.println(text);
 		  Thread.sleep(3000);
-		  for(int j=0;j<arrayoflist6.size();j++)
+		  for(int j=0;j<arrayoflist8.size();j++)
 			{
-			  JsonModel jo = arrayoflist6.get(j);
+			  JsonModel jo = arrayoflist8.get(j);
 	 			String value = jo.getXval()+"\n"+jo.getType()+":\n"+jo.getYval();
 
 	 			if(value.equalsIgnoreCase(text))

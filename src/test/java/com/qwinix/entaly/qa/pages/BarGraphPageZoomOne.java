@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.qwinix.entaly.qa.StepsDefinitions;
 
-public class BargraphPage
+public class BarGraphPageZoomOne
 {
 	@FindBy(xpath="//h3[contains(text(),'Repositories and Commits:')]")
 	public WebElement verify;
@@ -19,16 +19,8 @@ public class BargraphPage
 	@FindBy(xpath="//div[@class='hintStyle']")
 	public WebElement fetchdata;
 	
-	@FindBy(xpath="//button[@id='g1GraphChange']")
-	public WebElement changegraph;
-	
-	@FindBy(xpath="//a[contains(text(),'Pie Chart')]")
-	public WebElement piechart;
-	
-	public BargraphPage()
+	public BarGraphPageZoomOne()
 	{
 		PageFactory.initElements(StepsDefinitions.driver,this);
 	}
-	
-
 }

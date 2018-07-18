@@ -1,15 +1,15 @@
 package com.qwinix.entaly.qa.stepdefinitions;
 
-import com.qwinix.entaly.qa.steps.Linegraphzoom2steps;
+import com.qwinix.entaly.qa.steps.LineChartStepsZoomTwo;
 import com.qwinix.entaly.qa.steps.UserSteps;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class LineGraphzoomstepdef {
+public class LineChartStepDefinitionsZoomTwo {
 	UserSteps objUS = new UserSteps();
-	Linegraphzoom2steps objLS = new Linegraphzoom2steps();
+	LineChartStepsZoomTwo objLS = new LineChartStepsZoomTwo();
 	
 	@Given("^I am on Dashboard page$")
 	public void i_am_on_Dashboard_page() throws Throwable {

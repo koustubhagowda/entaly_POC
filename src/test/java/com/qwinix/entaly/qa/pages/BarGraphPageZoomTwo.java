@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.qwinix.entaly.qa.StepsDefinitions;
 
-public class Bargraphpagezoom2 {
+public class BarGraphPageZoomTwo {
 	
 	WebDriver driver = StepsDefinitions.driver;
 	

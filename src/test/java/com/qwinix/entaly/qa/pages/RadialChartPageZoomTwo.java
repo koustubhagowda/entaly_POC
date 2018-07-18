@@ -6,10 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.qwinix.entaly.qa.StepsDefinitions;
+public class RadialChartPageZoomTwo {
 
-public class Radialgraphpagezoom2 {
 	WebDriver driver = StepsDefinitions.driver;
-	
 	@FindBy(xpath="*//[name()='svg']*/[name()='g']*/[name()='path']")
 	public WebElement radialpath;
 	

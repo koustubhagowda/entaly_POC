@@ -9,17 +9,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.qwinix.entaly.qa.StepsDefinitions;
-import com.qwinix.entaly.qa.pages.Bargraphpagezoom2;
+import com.qwinix.entaly.qa.pages.BarGraphPageZoomTwo;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class Bargraphzoom2step {
+public class BarGraphStepsZoomTwo {
 	
 		WebDriver driver = StepsDefinitions.driver;
 		ConfigUtil config = new ConfigUtil();
-		ArrayList<JsonModel> arrayoflist4 = new ArrayList<>();
-		Bargraphpagezoom2 objBG = new  Bargraphpagezoom2();
+		ArrayList<JsonModel> arrayoflist6 = new ArrayList<>();
+		BarGraphPageZoomTwo objBG = new  BarGraphPageZoomTwo();
 		
 public void barchart_access_token() throws InterruptedException {
 			Thread.sleep(3000);
@@ -43,7 +43,7 @@ public void barchart_access_token() throws InterruptedException {
 					JSONObject lj=repos.getJSONObject(i);
 					jm.setXval(lj.getString("x"));
 					jm.setYval(lj.getInt("y"));
-					arrayoflist4.add(jm);
+					arrayoflist6.add(jm);
 				}
 			} catch (JSONException e)
 			{
@@ -73,9 +73,9 @@ public void barchart_fetchdata() throws InterruptedException {
 		  		String text = objBG.gettext();
 		  		System.out.println(text);
 		  		Thread.sleep(3000);
-		  		for(int j=0;j<arrayoflist4.size();j++)
+		  		for(int j=0;j<arrayoflist6.size();j++)
 				{
-		  			JsonModel jo = arrayoflist4.get(j);
+		  			JsonModel jo = arrayoflist6.get(j);
 		 			String value = jo.getXval()+" :\n"+jo.getYval();
 
 		 			if(value.equalsIgnoreCase(text))

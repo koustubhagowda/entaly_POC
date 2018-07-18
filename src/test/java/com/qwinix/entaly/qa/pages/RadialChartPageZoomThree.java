@@ -6,15 +6,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.qwinix.entaly.qa.StepsDefinitions;
 
-public class LinechartPage
+public class RadialChartPageZoomThree
 {
-//	@FindBy(xpath="//*[name()='svg']/*[name()='g'][5]//*[name()='circle'][1]")
-//	public WebElement mouseover;
+	@FindBy(xpath="//a[contains(text(),'Pie Chart')]")
+	public WebElement piechart;
 	
-	@FindBy(xpath="//div[@class='hintStyle']")
-	public WebElement fetchdata;
-	
-	public LinechartPage()
+	public RadialChartPageZoomThree()
 	{
 		PageFactory.initElements(StepsDefinitions.driver,this);
 	}

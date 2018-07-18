@@ -11,19 +11,29 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.qwinix.entaly.qa.StepsDefinitions;
-import com.qwinix.entaly.qa.pages.Bargraphpagezoom2;
-import com.qwinix.entaly.qa.pages.Radialgraphpagezoom2;
+
+import com.qwinix.entaly.qa.pages.RadialChartPageZoomTwo;
+
+
+import com.qwinix.entaly.qa.pages.BarGraphPageZoomTwo;
+
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class Radialgraphzoom2steps {
+public class RadialChartStepsZoomTwo {
 	
 	WebDriver driver = StepsDefinitions.driver;
+
 	ArrayList<JsonModel> arrayoflist5 = new ArrayList<>();
-	Bargraphpagezoom2 objBG = new  Bargraphpagezoom2();
-	Radialgraphpagezoom2 objRP = new Radialgraphpagezoom2();
-	
+	BarGraphPageZoomTwo objBG = new  BarGraphPageZoomTwo();
+	RadialChartPageZoomTwo objRP = new RadialChartPageZoomTwo();
+	ArrayList<JsonModel> arrayoflist7 = new ArrayList<>();
+
+
+
+
+
 	public void radial_access_token() {
 		String actual = driver.findElement(By.xpath("//h3[text()='Repositories and Commits:']")).getText();
 		System.out.println("actualvalue is = "+actual);
@@ -53,7 +63,7 @@ public class Radialgraphzoom2steps {
 				jm.setYval(lk.getInt("label"));
 				jm.setYval(lk.getInt("theta"));
 				jm.setXval(lk.getString("repo"));
-				arrayoflist5.add(jm);
+				arrayoflist7.add(jm);
 
 
 
@@ -103,11 +113,11 @@ public class Radialgraphzoom2steps {
 	  		
 	  		 
 	  		 
-	  		for(int j=0;j<arrayoflist5.size();j++)
+	  		for(int j=0;j<arrayoflist7.size();j++)
 			{
 
 
-	  			JsonModel jo = arrayoflist5.get(j);
+	  			JsonModel jo = arrayoflist7.get(j);
 	 			String value = jo.getYval()+":\n"+jo.getYval()+":\n"+jo.getXval()+":\n";
 
 
