@@ -6,16 +6,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.qwinix.entaly.qa.StepsDefinitions;
-import com.qwinix.entaly.qa.pages.BarGraphPageZoomTwo;
-import com.qwinix.entaly.qa.pages.RadialChartPageZoomOne;
+import com.qwinix.entaly.qa.pages.Bubblechartpage;
+
 
 public class Scatterchartsteps {
 	
 	
 	public void getdata_scatter_chart() throws InterruptedException {
 	WebDriver driver = StepsDefinitions.driver;
-	BarGraphPageZoomTwo objBG = new  BarGraphPageZoomTwo();
-	RadialChartPageZoomOne objRP = new RadialChartPageZoomOne();
+	Bubblechartpage objBP = new Bubblechartpage();
 	
 	driver.get("https://www.amcharts.com/demos/scatter-chart");
 	Thread.sleep(3000);
@@ -26,9 +25,9 @@ public class Scatterchartsteps {
 	System.out.println(size);
 	for(int i=1;i<=size;i++) {
 		WebElement element = driver.findElement(By.xpath("//*[name()='svg']/*[name()='g'][12]/*[name()='g'][1]/*[name()='path'][" + i +"]")); 
-		objBG.onMouseOver(element);
+		objBP.onMouseOver(element);
 		Thread.sleep(3000);
-  		String text = objRP.getdata.getText();
+  		String text = objBP.getdata();
   		System.out.println(text);
 		
 	}
@@ -37,9 +36,9 @@ public class Scatterchartsteps {
 	System.out.println(sizeof);
 	for(int j=1;j<=sizeof;j++) {
 		WebElement element = driver.findElement(By.xpath("//*[name()='svg']/*[name()='g'][12]/*[name()='g'][2]/*[name()='path'][" + j +"]")); 
-		objBG.onMouseOver(element);
+		objBP.onMouseOver(element);
 		Thread.sleep(3000);
-  		String text = objRP.getdata.getText();
+  		String text = objBP.getdata();
   		System.out.println(text);
 		
 	}
